@@ -19,7 +19,7 @@ echo $hero
 
 ###### input from user
 ```
-read -p "enter num1: " $num1
+read -p "enter num1: " num1
 ```
 
 ###### perform addition
@@ -68,4 +68,39 @@ greet() {
 
 # Call the function
 greet
+```
+
+###### function with input
+```
+sumoftwo() {
+  read -p "enter num 1 : " n1
+  read -p "enter num 2 : " n2
+  greet
+  echo sum of $n1 and $n2 is : $((n1+n2)) 
+}
+```
+
+###### function with input
+```
+# Define the function and use positional parameters $1 and $2
+sumoftwo() {
+    local n1=$1
+    local n2=$2
+    local sum=$((n1+n2))
+    echo "sum of $n1 and $n2 is : $sum"
+}
+
+# --- Example of how to call the function ---
+
+# Call the function with two numbers as arguments
+sumoftwo 5 10
+
+# Call the function with different numbers
+sumoftwo 25 75
+
+# Call the function using variables
+a=100
+b=200
+sumoftwo $a $b
+sumoftwo "$a" "$b"
 ```
